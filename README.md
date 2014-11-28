@@ -1,10 +1,7 @@
 pyllock
 =======
 
-Make pictures inspired in Jackson_Pollock_ art
-
-.. _Jackson_Pollock: http://en.wikipedia.org/wiki/Jackson_Polloc
-
+Make pictures inspired in [Jackson Pollock](http://en.wikipedia.org/wiki/Jackson_Polloc) art
 
 Install
 =======
