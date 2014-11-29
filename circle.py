@@ -1,3 +1,4 @@
+import argparse 
 import random
 import sys
 import svgwrite
@@ -7,9 +8,9 @@ class Circle(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.cx =random.randint(0, 800)
-        self.cy = random.randint(0, 600)
-        self.r = random.randint(1, 500)
+        self.cx =random.randint(0, 400)
+        self.cy = random.randint(0, 300)
+        self.r = random.randint(1, 200)
 
     def define (self, 
             dwg, 
@@ -31,13 +32,17 @@ class Circle(object):
             fill=fill))
 
 if __name__ == "__main__":
-    svg = 'circle.svg'
-    png = 'circle.png'
-    if len(sys.argv) > 1:
-        svg = sys.argv[1]
-        if len(sys.argv) > 2:
-            png = sys.argv[2]
-    dwg = svgwrite.Drawing(filename = svg, size = ("800px", "600px"))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-svg", type=str, help="svg file name", default="circle")
+    parser.add_argument("-png", type=str, help="png file name", default="circle")
+    parser.add_argument("-w", type=int, help="Image width", default=400)
+    parser.add_argument("-he", type=int, help="Image height", default=300)
+    args = parser.parse_args()
+    svg = '%s.svg' % (args.svg)
+    png = '%s.png' % (args.png)
+    w = '%ipx' % (args.w)
+    h = '%ipx' % (args.he)
+    dwg = svgwrite.Drawing(filename = svg, size = (w, h))
     circle = Circle()
     circle.define(dwg)
     dwg.save()

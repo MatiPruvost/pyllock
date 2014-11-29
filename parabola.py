@@ -1,3 +1,4 @@
+import argparse
 import random
 import sys
 import svgwrite
@@ -53,19 +54,23 @@ class Parabola(object):
 
 
 if __name__ == "__main__":
-    svg = 'parabola.svg'
-    png = 'parabola.png'
-    if len(sys.argv) > 1:
-        svg = sys.argv[1]
-        if len(sys.argv) > 2:
-            png = sys.argv[2]
-    dwg = svgwrite.Drawing(filename = svg, size = ("800px", "600px"))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-svg", type=str, help="svg file name", default="parabola")
+    parser.add_argument("-png", type=str, help="png file name", default="parabola")
+    parser.add_argument("-w", type=int, help="Image width", default=400)
+    parser.add_argument("-he", type=int, help="Image height", default=300)
+    args = parser.parse_args()
+    svg = '%s.svg' % (args.svg)
+    png = '%s.png' % (args.png)
+    w = '%ipx' % (args.w)
+    h = '%ipx' % (args.he)
+    dwg = svgwrite.Drawing(filename = svg, size = (w, h))
     parabola = Parabola()
     parabola.define(dwg)
     dwg.save()
     fout = open(png,'w')
-    with open(svg, 'r') as f:
-        svg_file = f.read()
-    f.closed
-    cairosvg.svg2png(bytestring=svg_file,write_to=fout)
+        with open(svg, 'r') as f:
+            svg_file = f.read()
+        f.closed
+        cairosvg.svg2png(bytestring=svg_file,write_to=fout)
     fout.close()
