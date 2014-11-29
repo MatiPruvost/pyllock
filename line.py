@@ -8,10 +8,10 @@ class Line(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.x1 =random.randint(0, 800)
-        self.x2 =random.randint(0, 800)
-        self.y1 = random.randint(0, 600)
-        self.y2 = random.randint(0, 600)
+        self.x1 =random.randint(0, 400)
+        self.x2 =random.randint(0, 400)
+        self.y1 = random.randint(0, 300)
+        self.y2 = random.randint(0, 300)
         self.stroke_linecap = "round"
         self.stroke_width = random.randint(1, 20)
 
