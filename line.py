@@ -55,8 +55,8 @@ if __name__ == "__main__":
     line.define(dwg)
     dwg.save()
     fout = open(png,'w')
-        with open(svg, 'r') as f:
-            svg_file = f.read()
-        f.closed
-        cairosvg.svg2png(bytestring=svg_file,write_to=fout)
+    with open(svg, 'r') as f:
+        svg_file = f.read()
+    f.closed
+    cairosvg.svg2png(bytestring=svg_file,write_to=fout)
     fout.close()
