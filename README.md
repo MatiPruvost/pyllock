@@ -1,7 +1,8 @@
 pyllock
 =======
 
-Make pictures inspired in [Jackson Pollock](http://en.wikipedia.org/wiki/Jackson_Pollock) art
+Make pictures inspired in [Jackson Pollock](http://en.wikipedia.org/wiki/Jackson_Pollock) art.
+We are coding yet, but you can use some things if you want
 
 # Install
 - Create your virtualenv. [How to install](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#installation), [How to create](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#usage).
