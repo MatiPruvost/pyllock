@@ -7,26 +7,28 @@ class Circle(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.xc =random.randint(0, 800)
-        self.yc = random.randint(0, 600)
+        self.cx =random.randint(0, 800)
+        self.cy = random.randint(0, 600)
         self.r = random.randint(1, 500)
 
     def define (self, 
             dwg, 
-            color=None, 
-            xc=None, 
-            yc=None,
+            stroke=None, 
+            fill=None,
+            cx=None, 
+            cy=None,
             r=None):
-        color = color or self.colors[self.c]
-        xc = xc or self.xc
-        yc = yc or self.yc
+        stroke = stroke or self.colors[self.c]
+        fill = fill or stroke
+        cx = cx or self.cx
+        cy = cy or self.cy
         r = r or self.r
 
         return dwg.add(dwg.circle(
-            (xc, yc), 
+            (cx, cy), 
             r,
-            stroke=color,
-            fill=color))
+            stroke=stroke,
+            fill=fill))
 
 if __name__ == "__main__":
     svg = 'circle.svg'

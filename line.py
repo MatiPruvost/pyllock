@@ -7,32 +7,35 @@ class Line(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.xi =random.randint(0, 800)
-        self.xo =random.randint(0, 800)
-        self.yi = random.randint(0, 600)
-        self.yo = random.randint(0, 600)
-        self.s = random.randint(1, 20)
+        self.x1 =random.randint(0, 800)
+        self.x2 =random.randint(0, 800)
+        self.y1 = random.randint(0, 600)
+        self.y2 = random.randint(0, 600)
+        self.stroke_linecap = "round"
+        self.stroke_width = random.randint(1, 20)
 
     def define (self, 
             dwg, 
             color=None, 
-            xi=None, 
-            xo=None, 
-            yi=None,
-            yo=None,
-            s=None):
+            x1=None, 
+            x2=None, 
+            y1=None,
+            y2=None,
+            stroke_linecap=None,
+            stroke_width=None):
         color = color or self.colors[self.c]
-        xi = xi or self.xi
-        xo = xo or self.xo
-        yi = yi or self.yi
-        yo = yo or self.yo
-        s = s or self.s
+        x1 = x1 or self.x1
+        x2 = x2 or self.x2
+        y1 = y1 or self.y1
+        y2 = y2 or self.y2
+        stroke_width = stroke_width or self.stroke_width
+        stroke_linecap = stroke_linecap or self.stroke_linecap
 
         return dwg.add(dwg.line(
-            (xi, yi), 
-            (xo, yo), 
-            stroke_width=s,
-            stroke_linecap="round",
+            (x1, y1), 
+            (x2, y2), 
+            stroke_width=stroke_width,
+            stroke_linecap=stroke_linecap,
             stroke=color))
 
 if __name__ == "__main__":
