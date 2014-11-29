@@ -8,15 +8,14 @@ class Parabola(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.x1 =random.randint(0, 400)
-        self.x2 =random.randint(0, 400)
-        self.y1 = random.randint(0, 300)
-        self.y2 = random.randint(0, 300)
+        self.x1 =random.randint(-200, 1000)
+        self.x2 =random.randint(-200, 1000)
+        self.y1 = random.randint(-200, 800)
+        self.y2 = random.randint(-200, 800)
         self.qx = str(random.randint(0, 200))
         self.qy = str(random.randint(0, 200))
-        self.stroke_width = random.randint(1, 20)
+        self.stroke_width = random.randint(1, 15)
         self.stroke_linecap = "round"
-        self.stroke_width = random.randint(1, 20)
         self.fill = "none"
 
     def define (self, 

@@ -8,9 +8,9 @@ class Circle(object):
     def __init__(self):
         self.colors = ['#4d4d4d','#0000ff','#0066ff']
         self.c = random.randint(0, 2)
-        self.cx =random.randint(0, 400)
-        self.cy = random.randint(0, 300)
-        self.r = random.randint(1, 200)
+        self.cx =random.randint(-200, 1000)
+        self.cy = random.randint(-200, 800)
+        self.r = random.randint(1, 50)
 
     def define (self, 
             dwg, 
